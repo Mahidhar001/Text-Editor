@@ -23,7 +23,7 @@ button {
     font-family: Arial, Helvetica, sans-serif
 }
 
-.download-btn {
+.save-btn {
     position: fixed;
     bottom: 20px; 
     right: 20px;  
