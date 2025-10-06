@@ -1,11 +1,35 @@
-function saveFile() {
-    var text = document.getElementById('textbox').value;
-    var blob = new Blob([text], {type: 'text/plain'});
-    var link = document.createElement('a');
-    
-    link.href = URL.createObjectURL(blob);
-    link.download = 'text.txt'; 
-    link.click();
-    
-    URL.revokeObjectURL(link.href);
-  }
+
+let fileHandle;
+
+async function openFile() {
+    try {
+        [fileHandle] = await window.showOpenFilePicker();
+        const file = await fileHandle.getFile();
+        const contents = await file.text();
+        document.getElementById('textbox').value = contents;
+    } catch (error) {
+        console.error("Error opening file:", error);
+    }
+}
+
+async function saveFile() {
+    try {
+        if (!fileHandle) {
+            fileHandle = await window.showSaveFilePicker({
+                suggestedName: 'Untitled.txt',
+                types: [
+                    {
+                        accept: {
+                            'text/plain': ['.txt'],
+                        },
+                    },
+                ],
+            });
+        }
+        const writable = await fileHandle.createWritable();
+        await writable.write(document.getElementById('textbox').value);
+        await writable.close();
+    } catch (error) {
+        console.error("Error saving file:", error);
+    }
+}
