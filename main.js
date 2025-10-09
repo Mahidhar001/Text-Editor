@@ -1,4 +1,3 @@
-
 let fileHandle;
 
 async function openFile() {
