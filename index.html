@@ -11,11 +11,13 @@
     <link href='style.css' rel='stylesheet'>
   </head>
   <body>
-    <div class="side-bar">
-      <button class="open-btn side-btn" onclick="openFile()">Open</button>
-      <button class="save-btn side-btn" onclick="saveFile()">Save</button>
-    </div>
     <div class="container">
+      <div class="side-bar">
+        <ul>
+          <li><button class="open-btn side-btn" onclick="openFile()">Open</button></li>
+          <li><button class="save-btn side-btn" onclick="saveFile()">Save</button></li>
+        </ul>
+      </div>
       <textarea name="text" class="textbox" id="textbox"></textarea>
     </div>
     <script defer type="text/javascript" src="main.js"></script>

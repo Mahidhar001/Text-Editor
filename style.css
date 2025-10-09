@@ -1,13 +1,19 @@
-body {
+html, body {
+    height: 98vh;
+    width: 99vw;
+    margin: 0;
+    padding: 0;
     color: white;
     background-color: #474444;
-    display: flex;
 }
 
 .container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    display: flex;
+    border: 5px solid;
+    border-radius: 10px;
 }
 
 button {
@@ -31,11 +37,19 @@ button {
     background-color: rgb(131, 131, 133);
     font-size: xx-large;
     cursor: pointer;
+    width: 100%;
     margin: 5px;
-    width: 80%;
 }
 
 .side-bar {
-    background-color: antiquewhite;
+    background-color: rgb(24, 23, 42);
     text-align: center;
+    border-right: 5px solid;
+    padding: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 20px;
+    padding: 0;
 }
